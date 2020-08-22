@@ -1,0 +1,27 @@
+Direction,Type of Strategy,Name of Feature,Corres. Stanford Feature,Examples,name,rule_cn,rule_en
+Polite,Positive,apologetic,apologizing,"my bad, sorry",apologetic,"set('对不起,对不住,抱歉,骚瑞,不好意思,很遗憾'.split(','))",re.compile(r'\b(my (bad|apolog(y|ies)|fault)|s(or)?ry)\b')
+Polite,Positive,"honorific ""you""",/,"your honor, ur majesty",you_honorific,{'您'},re.compile(r'\b(yo)?ur (honou?r|majesty|highness)\b')
+Rude,Positive,"direct ""you""",2nd person,"you, u",you_direct,{'你'},re.compile(r'\b(yo)?u\b')
+Polite,Negative,hedges,hedges,"doubtful, in my opinion ",hedge,set_of_hedges_cn,set_of_hedges_en
+Polite,Positive,gratitude,gratitude,"thanks, thx",gratitude,re.compile(r'[感谢重鸣]谢'),"{'thanks', 'thx', 'thank you', 'i appreciate'}"
+Rude,Positive,taboo,/,"dammit, hella",taboo,set_of_taboo_cn,set_of_taboo_en
+Polite,Positive,best wishes,/,have a great day,best_wishes,re.compile(r'祝(你|您|各位|大家)'),set_of_wishes_en
+Polite,Positive,praise,deference,"awesome, bravo",praise,re.compile(r'([真好]?(厉害|棒|强|牛|美|漂亮))|(干[得的]真?(好|漂亮))'),set_of_praise_en
+Polite,Negative,by-the-way,indirectbtw,"by the way, btw",indirect_btw,"set('对了,话说,说起来'.split(','))","{'btw', 'by the way'}"
+Polite,Positive,please,please,"please, pls, plz",please,re.compile(r'([烦劳还]?请)|([烦劳]您)'),re.compile(r'\bpl(ease|[sz])\b')
+Rude,Positive,start with please,pleasestart,please,start_please,re.compile(r’^\W*请’),re.compile(r'^\W*pl(ease|[sz])\b')
+Polite,Bold on Record,emergency,/,"asap, right now",emergency,"set('赶紧,立刻,马上,赶快,紧急,尽快,立马'.split(','))",set_of_emergency_en
+Polite,Positive,honorifics,/,"Mr., Prof.",honorifics,"set('令尊,令堂,令兄,令妹,令郎,令爱,令阃,令亲,惠临,惠顾,惠存,垂问,垂询,垂念,赐教,赐膳,赐复,请问,请教,高见,高论,高足,高寿,高龄,高就,华诞,贤弟,贤侄,先生,女士,夫人'.split(','))","{'mr.', 'mister', 'miss', 'mrs.', 'sir', 'prof.', 'dr.'}"
+Polite,Positive,greeting,greeting,"Hey, Hi, Hello",greeting,"set('嗨,哈喽,哈罗,嘿'.split(','))",re.compile(r'\b(hello|he+y|hi+|aloha)\b')
+Polite,Positive,promise,/,"i promise, must, surely",promise,"set('一定,肯定,绝对,没错,必,保证,确凿'.split(','))","set('must,definitely,sure,definite,surely,certainly,promise'.split(','))"
+Rude,Positive,start with so,directstart,So,start_so,re.compile(r'^\W*那'),re.compile(r'^\W*so+\b')
+Polite,Negative,factuality,factuality,"in fact, actually",factuality,"set('其实,说实话,讲真'.split(','))",re.compile(r'\b(((in|as a matter of) (fact|truth))|actually)\b')
+Polite,Negative,counterfactual modal,could,"could you, would u",could_you,re.compile(r'[你您](?P<A>[可想觉要])不(?P=A)'),re.compile(r'\b[cw]ould (yo)?u\b')
+Polite,Negative,indicative modal,can,"can you, would u",can_you,re.compile(r'[你您][是可想觉要].+?[吗呢呀？]'),re.compile(r'\b(can|will) (yo)?u\b')
+Rude,Positive,start with question,direct,"what, why",start_question,re.compile(r'^\W*([为凭]什么|几|哪|多少|怎|谁|咋)'),re.compile(r'^\W*(wh(at|ere|y|en)|how)\b')
+Polite,Positive,in-group identity,/,"mate, bro, homie",ingroup_ident,"{'咱','咱们'}","set('mate,bro,homie'.split(','))"
+Polite,Positive,first person plural,1pl,"we, our, us, ours",first_person_plural,{'我们'},"{'we', 'our', 'ours', 'us'}"
+Polite,Negative,first person singular,1,"i, my, mine, me",first_person_singular,"{'我', '俺'}","{'i', 'my', 'mine', 'me'}"
+Polite,Positive,together,/,together,together,re.compile(r'一([起齐同]|块儿)'),{'together'}
+Rude,Negative,start with i,1start,i,start_i,re.compile(r'^\W*[我俺]'),re.compile(r'^\W*i\b')
+Rude,Negative,start with you,1start,"you, u",start_you,re.compile(r'^\W*你'),re.compile(r'^\W*(yo)?u\b')
