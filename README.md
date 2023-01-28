@@ -1,5 +1,7 @@
 # Politeness Estimator for Microblogs (Pem)
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tslmy/politeness-estimator/HEAD?labpath=demo.ipynb)
+
 Pem is a set of pre-trained machine-learning models that predict (im-)politeness scores in texts. The models are trained on annotated microblogs and packaged into a simple Python class for easy use. Currently, two language-microblog pairs are supported:
 
 - English Twitter
